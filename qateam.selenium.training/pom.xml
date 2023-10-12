@@ -12,5 +12,12 @@
     <version>4.13.0</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>htmlunit-driver</artifactId>
+    <version>4.13.0</version>
+</dependency>
+
 </dependencies> 
 </project>

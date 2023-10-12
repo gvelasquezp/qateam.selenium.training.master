@@ -1,4 +1,4 @@
-package seleniumtraining.elements;
+package seleniumtraining.selenium;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -7,24 +7,26 @@ import org.openqa.selenium.WebElement;
 import seleniumtraining.common.BaseTest;
 import seleniumtraining.common.Configuration;
 
-public class ElementActionsLoginAndLogout extends BaseTest{
+import java.time.Duration;
+
+public class SeleniumImplicitWait extends BaseTest{
 	
 	@Test
-	public void test() throws Exception {
+	public void testImplicitWait() throws Exception {
 		
         WebElement userTextBox = driver.findElement(By.name("username"));
         userTextBox.sendKeys(Configuration.USER_NAME);
         WebElement pwdTextBox = driver.findElement(By.name("password"));
         pwdTextBox.sendKeys(Configuration.PASSWORD);
         pwdTextBox.submit();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         boolean menuLoaded = driver.findElement(By.cssSelector("div.oxd-main-menu")).isDisplayed();
         assertTrue(menuLoaded, "Assert that menu is loaded.");
 
         // Logout
         driver.findElement(By.cssSelector(".oxd-userdropdown-tab")).click();
         driver.findElement(By.xpath("//*[contains(text(),'Logout')]")).click();
-		Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         WebElement userTextBoxLogout = driver.findElement(By.name("username"));
 		assertTrue(userTextBoxLogout.isDisplayed(), "Assert successful logout.");
 

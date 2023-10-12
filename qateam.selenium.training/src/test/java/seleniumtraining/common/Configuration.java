@@ -17,8 +17,15 @@ public class Configuration {
 	
 	public static String BLOG_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 	//public static String BLOG_URL = "https://automationexercise.com/";
+	//public static String BLOG_URL = "https://demo.guru99.com/test/newtours/register.php";
+	
 	public static String USER_NAME = "Admin";
 	public static String PASSWORD = "admin123";
+	
+	public static String SCREENSHOTS_DIR = System.getProperty("user.dir") 
+			+ File.separator
+			+ "screenshots"
+			+ File.separator;
 	
 	private static String modifyIfWindows(String inPath) {
 		if (System.getProperty("os.name").toLowerCase().contains("windows")){
